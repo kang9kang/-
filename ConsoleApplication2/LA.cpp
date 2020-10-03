@@ -72,15 +72,16 @@ void LA::scan()
                 word += ch;
                 ch = txt[p++];
             }
-            for (int i = 0; i < 15; i++) {
-                if (i == 14 && word != rsv_words[i])
+            for (int i = 0; i < 16; i++) {
+                if (i == 15 && word != rsv_words[i]&&ch!='(')
                     fg++;
-                if (word == rsv_words[i]) {
+                if ( (word == rsv_words[i])||ch=='(') {
                     cout << '<' << fg << ',' << word << '>' << endl;
                     word.clear();
                     break;
                 }
             }
+
             if (fg == 2)
                 cout << '<' << fg << ',' << word << '>' << endl;
             word.clear();
@@ -253,6 +254,38 @@ void LA::scan()
         case '!':
             fg = 4;
             if (txt[p] == '=') {
+                word += ch;
+                ch = txt[p++];
+                word += ch;
+                ch = txt[p++];
+                cout << '<' << fg << ',' << word << '>' << endl;
+                word.clear();
+                break;
+            }
+            else {
+                cout << '<' << fg << ',' << ch << '>' << endl;
+                ch = txt[p++];
+                break;
+            }
+        case'&':
+            fg = 4;
+            if (txt[p] == '&') {
+                word += ch;
+                ch = txt[p++];
+                word += ch;
+                ch = txt[p++];
+                cout << '<' << fg << ',' << word << '>' << endl;
+                word.clear();
+                break;
+            }
+            else {
+                cout << '<' << fg << ',' << ch << '>' << endl;
+                ch = txt[p++];
+                break;
+            }
+        case'|':
+            fg = 4;
+            if (txt[p] == '|') {
                 word += ch;
                 ch = txt[p++];
                 word += ch;
