@@ -1,6 +1,7 @@
-void f() {
-
-
+void fghd() {
+    int ab[]{ 1,2,3 };//abcd
+    ab[1] >> 1;
+    /*jhhj*/
 }
 
 int main()

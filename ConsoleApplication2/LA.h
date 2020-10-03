@@ -10,7 +10,8 @@
 using namespace std;
 
 //±£Áô×ÖÊý×é
-static string rsv_words[] = { "int","double","char","if","else","for","while","do","return","break","continue","main","scanf","printf","getchar","void" };
+static string rsv_words1[] = { "int","double","char","void" ,"float","short","long"};
+static string rsv_words2[] = { "if", "else", "for", "while", "do", "return", "break", "continue", "main", "scanf", "printf", "getchar" };
 
 class LA
 {
