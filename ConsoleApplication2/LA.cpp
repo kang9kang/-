@@ -14,6 +14,7 @@ LA::LA(const char* s) :fin(s), line(1), num(0), fg(0), ch('\0')
 void LA::scan()
 {
     int p = 0;
+    cout << '[' << endl;
 
     //读取第一个非空字符
     do {
@@ -21,13 +22,13 @@ void LA::scan()
         if (ch == 10)
             line++;
     } while (ch == ' ' || ch == 10);
-    cout << "line " << line << " :" << endl;
+   // cout << "line " << line << " :" << endl;
 
     while (ch != '\0') {
         while (ch == ' ' || ch == 10) {
             if (ch == 10) {
                 line++;
-                cout << "line " << line << " :" << endl;
+               // cout << "line " << line << " :" << endl;
             }
             ch = txt[p++];
         }
@@ -56,7 +57,7 @@ void LA::scan()
             }
             switch (fg) {
             case -1: cout << "error: " << '<' << word << '>' << endl; break;
-            case 2: cout << '<' << fg << ',' << word << '>' << endl; break;
+            case 2: cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
             default: break;
             }
             word.clear();
@@ -76,19 +77,19 @@ void LA::scan()
                 if (/*i == 7 &&*/ word != rsv_words1[i]&&ch!='('&& (word != rsv_words2[i]))
                     fg=2;
                 if ( (word == rsv_words1[i])/*||ch=='('|| (word == rsv_words2[i])*/) {
-                    cout << '<' << fg << ',' << word << '>' << endl;
+                    cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                     word.clear();
                     break;
                 }
                 if ((word == rsv_words2[i])/*||ch=='('|| (word == rsv_words2[i])*/) {
                     fg = 7;
-                    cout << '<' << fg << ',' << word << '>' << endl;
+                    cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                     word.clear();
                     break;
                 }
                 if (/*(word == rsv_words1[i])*//*||*/ch=='('/*|| (word == rsv_words2[i])*/) {
                     fg = 8;
-                    cout << '<' << fg << ',' << word << '>' << endl;
+                    cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                     word.clear();
                     break;
                     if (/*i == 7 &&*/ word != rsv_words1[i] && ch != '(' && (word != rsv_words2[i]))
@@ -97,13 +98,13 @@ void LA::scan()
             }
 
             if (fg == 2 && ch != '[') {
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 fg = 0;
             }
             if (fg == 2 && ch == '[') {
                 fg = 9;
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 fg = 0;
             }
@@ -118,7 +119,7 @@ void LA::scan()
                 num = 10 * num + (ch - '0');
                 ch = txt[p++];
             }
-            cout << '<' << fg << ',' << num << '>' << endl;
+            cout << "{\"" << fg << "\":" << num << "}," << endl;
             num = 0;
             fg = 0;
         }
@@ -133,7 +134,7 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
@@ -142,12 +143,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -158,7 +159,7 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
@@ -167,12 +168,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -183,12 +184,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -199,7 +200,7 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
@@ -218,7 +219,7 @@ void LA::scan()
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -229,12 +230,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -245,12 +246,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -261,7 +262,7 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
@@ -270,12 +271,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -286,7 +287,7 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
@@ -295,12 +296,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -311,12 +312,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -327,12 +328,12 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
@@ -343,33 +344,33 @@ void LA::scan()
                 ch = txt[p++];
                 word += ch;
                 ch = txt[p++];
-                cout << '<' << fg << ',' << word << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << word << "\"}," << endl;
                 word.clear();
                 break;
             }
             else {
-                cout << '<' << fg << ',' << ch << '>' << endl;
+                cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl;
                 ch = txt[p++];
                 break;
             }
 
             //处理分隔符
-        case ',': fg = 5; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case ';': fg = 5; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case ':': fg = 5; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
+        case ',': fg = 5; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case ';': fg = 5; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case ':': fg = 5; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
 
             //处理界符
-        case '(': fg = 6; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case ')': fg = 6; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case '[': fg = 6; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case ']': fg = 6; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case '{': fg = 6; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case '}': fg = 6; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case '"': fg = 6; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
-        case '\'': fg = 6; cout << '<' << fg << ',' << ch << '>' << endl; ch = txt[p++]; break;
+        case '(': fg = 6; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case ')': fg = 6; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case '[': fg = 6; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case ']': fg = 6; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case '{': fg = 6; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case '}': fg = 6; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case '"': fg = 6; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
+        case '\'': fg = 6; cout << "{\"" << fg << "\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
         }
     }
-
+    cout << ']' << endl;
 
 }
 
