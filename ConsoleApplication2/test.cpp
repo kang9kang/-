@@ -1,7 +1,8 @@
-void fghd() {
+int fghd() {
     int ab[]{ 1,2,3 };//abcd
     ab[1] >> 1;
     /*jhhj*/
+    return 0;
 }
 
 int main()

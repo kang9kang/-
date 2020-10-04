@@ -91,6 +91,8 @@ void LA::scan()
                     cout << '<' << fg << ',' << word << '>' << endl;
                     word.clear();
                     break;
+                    if (/*i == 7 &&*/ word != rsv_words1[i] && ch != '(' && (word != rsv_words2[i]))
+                        fg = 2;
                 }
             }
 
