@@ -1,9 +1,4 @@
-﻿  LA.cpp
-<<<<<<< HEAD
-  lexer.cpp
+﻿  lexer.cpp
+  LA.cpp
   正在生成代码...
-  LINK : 没有找到 C:\Users\康\Desktop\日报\日报\ConsoleApplication2\Debug\ConsoleApplication2.exe 或上一个增量链接没有生成它；正在执行完全链接
-  ConsoleApplication2.vcxproj -> C:\Users\康\Desktop\日报\日报\ConsoleApplication2\Debug\ConsoleApplication2.exe
-=======
   ConsoleApplication2.vcxproj -> C:\Users\康\Desktop\冰岩\日报\ConsoleApplication2\Debug\ConsoleApplication2.exe
->>>>>>> dev
