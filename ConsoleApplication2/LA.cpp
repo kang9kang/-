@@ -14,7 +14,7 @@ LA::LA(const char* s) :fin(s), line(1), num(0), fg(0), ch('\0')
 void LA::scan()
 {
     int p = 0;
-    cout << '[' << endl;
+    cout << " {\"ch\":[" << endl;
 
     //读取第一个非空字符
     do {
@@ -119,7 +119,7 @@ void LA::scan()
                 num = 10 * num + (ch - '0');
                 ch = txt[p++];
             }
-            cout << "{\"type\":\"" << fg << "\",\"value\":" << num << "}," << endl;
+            cout << "{\"type\":\"" << fg << "\",\"value\":\"" << num << "\"}," << endl;
             num = 0;
             fg = 0;
         }
@@ -370,7 +370,7 @@ void LA::scan()
         case '\'': fg = 6; cout << "{\"type\":\"" << fg << "\",\"value\":\"" << ch << "\"}," << endl; ch = txt[p++]; break;
         }
     }
-    cout << ']' << endl;
+    cout << "]}" << endl;
 
 }
 
