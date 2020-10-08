@@ -1,2 +1,4 @@
 C:\Users\康\Desktop\lianxi\新建文件夹\新建文件夹\新建文件夹\ConsoleApplication1\Debug\ConsoleApplication1.exe
 C:\Users\康\Desktop\lianxi\新建文件夹\新建文件夹\新建文件夹\ConsoleApplication1\Debug\ConsoleApplication1.pdb
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\Debug\ConsoleApplication1.exe
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\Debug\ConsoleApplication1.pdb

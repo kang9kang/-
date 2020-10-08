@@ -1,2 +1,7 @@
 ﻿  ConsoleApplication1.cpp
-  ConsoleApplication1.vcxproj -> C:\Users\康\Desktop\lianxi\新建文件夹\新建文件夹\新建文件夹\ConsoleApplication1\Debug\ConsoleApplication1.exe
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(207,18): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(216,13): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(231,13): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(246,20): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(252,13): warning C4018: “<”: 有符号/无符号不匹配
+  ConsoleApplication1.vcxproj -> C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\Debug\ConsoleApplication1.exe
