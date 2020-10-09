@@ -1,9 +1,15 @@
 ﻿  ConsoleApplication1.cpp
-C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(226,18): warning C4018: “<”: 有符号/无符号不匹配
-C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(235,13): warning C4018: “<”: 有符号/无符号不匹配
-C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(250,13): warning C4018: “<”: 有符号/无符号不匹配
-C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(265,20): warning C4018: “<”: 有符号/无符号不匹配
-C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(271,13): warning C4018: “<”: 有符号/无符号不匹配
-C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(284,20): warning C4018: “<”: 有符号/无符号不匹配
-C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(290,13): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(227,18): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(236,13): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(251,13): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(285,20): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(291,13): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(299,15): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(315,16): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(330,16): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(349,20): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(355,13): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(363,15): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(378,16): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\ConsoleApplication1.cpp(393,16): warning C4018: “<”: 有符号/无符号不匹配
   ConsoleApplication1.vcxproj -> C:\Users\康\Desktop\冰岩\日报\ConsoleApplication1\Debug\ConsoleApplication1.exe

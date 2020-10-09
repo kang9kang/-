@@ -133,7 +133,7 @@ void readFileJson()
 				cout << guanjianzi << "->";
 			else if (t == "6")
 				cout << guanjianzi << "->";*/
-			else if (t == "7") 
+			else if (t == "7"||t=="8") 
 			{
 				if (guanjianzi == "if") 
 				{
@@ -198,7 +198,8 @@ void readFileJson()
 				}
 				else cout << guanjianzi << ';' << endl << guanjianzi << " -> ";
 			}
-			else if (t == "8") {
+			else if (t == "8"||t=="7") 
+{
 			 if (guanjianzi == "while")
 			{
 				cout << "\"while";
@@ -262,7 +263,7 @@ void readFileJson()
 
 
 		}
-		for (int k = 0;k < root["ch"].size(); k++)
+		/*for (int k = 0;k < root["ch"].size(); k++)
 		{
 			string t = root["ch"][k]["type"].asString();
 			string guanjianzi = root["ch"][k]["value"].asString();
@@ -276,6 +277,70 @@ void readFileJson()
 					{
 						k--;
 						cout << root["ch"][--k]["value"].asString()<<" -> for;"<<endl;
+						break;
+					}
+				}
+			}
+		}*/
+		for (int k = 0;k < root["ch"].size(); k++)
+		{
+			string t = root["ch"][k]["type"].asString();
+			string guanjianzi = root["ch"][k]["value"].asString();
+			if (guanjianzi == "for")
+			{
+				for (;k < root["ch"].size(); k++)
+				{
+					string t = root["ch"][k]["type"].asString();
+					string guanjianzi = root["ch"][k]["value"].asString();
+					if (guanjianzi == "}")
+					{
+						k--;
+						k--;
+						for (;k < root["ch"].size(); k--)
+						{
+							string t = root["ch"][k]["type"].asString();
+							string guanjianzi = root["ch"][k]["value"].asString();
+							if (guanjianzi == ";" || guanjianzi == "{")
+							{
+								break;
+							}
+						}
+						k++;
+						string t = root["ch"][k]["type"].asString();
+						string guanjianzi = root["ch"][k]["value"].asString();
+						//cout << "\"";
+						if (t == "2")
+						{
+							cout << "\"";
+							for (;k < root["ch"].size(); k++)
+							{
+								string t = root["ch"][k]["type"].asString();
+								string guanjianzi = root["ch"][k]["value"].asString();
+								//cout << " "<<guanjianzi;
+								if (guanjianzi == ";")
+								{
+									break;
+								}
+								cout << " " << guanjianzi;
+							}
+							cout << "\"";
+						}
+						if (t == "7" || t == "8") 
+						{
+							for (;k < root["ch"].size(); k++)
+							{
+								string t = root["ch"][k]["type"].asString();
+								string guanjianzi = root["ch"][k]["value"].asString();
+								if (guanjianzi == ";")
+								{
+									break;
+								}
+								cout << " " << guanjianzi;
+								//cout << guanjianzi;
+
+							}
+						}
+						cout << " -> for;" << endl;
 						break;
 					}
 				}
@@ -294,7 +359,51 @@ void readFileJson()
 					if (guanjianzi == "}")
 					{
 						l--;
-						cout << root["ch"][--l]["value"].asString() << " -> while;" << endl;
+						l--;
+						for (;l < root["ch"].size(); l--)
+						{
+							string t = root["ch"][l]["type"].asString();
+							string guanjianzi = root["ch"][l]["value"].asString();
+							if (guanjianzi == ";"||guanjianzi=="{") 
+							{
+								break;
+							}
+						}
+						l++;
+						string t = root["ch"][l]["type"].asString();
+						string guanjianzi = root["ch"][l]["value"].asString();
+						if (t == "2")
+						{
+							cout << "\"";
+							for (;l < root["ch"].size(); l++)
+							{
+								string t = root["ch"][l]["type"].asString();
+								string guanjianzi = root["ch"][l]["value"].asString();
+								//cout << " "<<guanjianzi;
+								if (guanjianzi == ";")
+								{
+									break;
+								}
+								cout << " " << guanjianzi;
+							}
+							cout << "\"" << endl;
+						}
+						if (t == "7" || t == "8")
+						{
+							for (;l < root["ch"].size(); l++)
+							{
+								string t = root["ch"][l]["type"].asString();
+								string guanjianzi = root["ch"][l]["value"].asString();
+								if (guanjianzi == ";")
+								{
+									break;
+								}
+								cout << " " << guanjianzi;
+								//cout << guanjianzi;
+
+							}
+						}
+						cout << " -> while;" << endl;
 						break;
 					}
 				}
